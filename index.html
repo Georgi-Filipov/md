@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" property="og:title" content="m@mindy.com">
+  <meta name="description" property="og:description" content="Just email Mindy at m@mindy.com!">
+  <meta name="image" property="og:image" content="/static/imgs/opengraph.png">
+  <title>Contact Us</title>
+
+  <link href="/static/css/output.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mooli&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@400;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  
+  <script src="/static/js/mixpanel.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body style="padding-top: 88px;" class="min-h-screen flex flex-col justify-between bg-dark text-gray-400 font-sans">
+
+<header class="fixed top-0 z-10 w-full bg-dark">
+  <nav class="mx-auto px-4 py-6 max-w-screen-xl md:px-8">
+    <div class="flex flex-wrap justify-between items-center">
+      <a href="/" class="md:mr-4">
+        <img src="/static/images/logo.svg" class="h-10" alt="Mindy Logo" />
+      </a>
+      <div class="hidden fixed top-[88px] left-0 h-full max-h-[calc(100vh - (100vh - 100%) - 88px)] flex-col justify-between items-center w-full bg-gray-800 lg:w-auto lg:bg-transparent lg:static lg:flex lg:border-none" id="mobile-menu">
+        <ul class="flex flex-col text-gray-300 lg:flex-row">
+          <li class="py-3 border-y border-gray-700 active:bg-gray-700 lg:my-0 lg:border-none lg:p-0 lg:active:bg-transparent">
+            <a href="/product" class="block mx-4 border border-transparent active:text-gray-500 md:mx-8 lg:mx-4 lg:hover:border-b-white lg:active:border-b-gray-500">Product</a>
+          </li>
+          <li class="py-3 border-y border-gray-700 active:bg-gray-700 lg:my-0 lg:border-none lg:p-0 lg:active:bg-transparent">
+            <a href="/company" class="block mx-4 border border-transparent active:text-gray-500 md:mx-8 lg:mx-4 lg:hover:border-b-white lg:active:border-b-gray-500">Company</a>
+          </li>
+          <li class="py-3 border-b border-gray-700 active:bg-gray-700 lg:my-0 lg:border-none lg:p-0 lg:active:bg-transparent">
+            <a href="/blog" class="block mx-4 border border-transparent active:text-gray-500 md:mx-8 lg:mx-4 lg:hover:border-b-white lg:active:border-b-gray-500">Blog</a>
+          </li>
+          <li class="py-3 border-b border-gray-700 active:bg-gray-700 lg:my-0 lg:border-none lg:p-0 lg:active:bg-transparent">
+            <a href="/careers" class="block mx-4 border border-transparent active:text-gray-500 md:mx-8 lg:mx-4 lg:hover:border-b-white lg:active:border-b-gray-500">Careers</a>
+          </li>
+          <li class="py-3 border-b border-gray-700 active:bg-gray-700 lg:my-0 lg:border-none lg:p-0 lg:active:bg-transparent">
+            <a href="/contact-us" class="block mx-4 border border-transparent active:text-gray-500 md:mx-8 lg:mx-4 lg:hover:border-b-white lg:active:border-b-gray-500">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex items-center md:ml-4">
+        <button data-hide-toggle="popup-get-started" type="button" class="py-2 px-5 bg-blue text-white font-medium rounded-lg whitespace-nowrap hover:bg-blue-dark focus:bg-blue-dark active:bg-blue-dark active:text-opacity-60">
+          Get Started
+        </button>
+        <button data-toggle-menu="mobile-menu" type="button" class="ml-4 inline-flex items-center text-gray-300 lg:hidden" aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.407014 0 0.909091 0H19.0909C19.593 0 20 0.447715 20 1C20 1.55228 19.593 2 19.0909 2H0.909091C0.407014 2 0 1.55228 0 1ZM0 10C0 9.44771 0.407014 9 0.909091 9H19.0909C19.593 9 20 9.44771 20 10C20 10.5523 19.593 11 19.0909 11H0.909091C0.407014 11 0 10.5523 0 10ZM0 19C0 18.4477 0.407014 18 0.909091 18H19.0909C19.593 18 20 18.4477 20 19C20 19.5523 19.593 20 19.0909 20H0.909091C0.407014 20 0 19.5523 0 19Z" fill="currentColor"/></svg>            
+          <svg class="hidden w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.4263 12.0123L18.7193 6.71929C18.8148 6.62704 18.891 6.5167 18.9434 6.39469C18.9958 6.27269 19.0234 6.14147 19.0245 6.00869C19.0257 5.87591 19.0004 5.74423 18.9501 5.62133C18.8998 5.49844 18.8256 5.38679 18.7317 5.29289C18.6378 5.199 18.5261 5.12475 18.4032 5.07447C18.2803 5.02419 18.1487 4.99888 18.0159 5.00004C17.8831 5.00119 17.7519 5.02878 17.6299 5.08119C17.5079 5.1336 17.3975 5.20978 17.3053 5.30529L12.0123 10.5983L6.71929 5.30529C6.53069 5.12313 6.27808 5.02234 6.01589 5.02461C5.75369 5.02689 5.50288 5.13206 5.31747 5.31747C5.13206 5.50288 5.02689 5.75369 5.02461 6.01589C5.02234 6.27808 5.12313 6.53069 5.30529 6.71929L10.5983 12.0123L5.30529 17.3053C5.20978 17.3975 5.1336 17.5079 5.08119 17.6299C5.02878 17.7519 5.00119 17.8831 5.00004 18.0159C4.99888 18.1487 5.02419 18.2803 5.07447 18.4032C5.12475 18.5261 5.199 18.6378 5.29289 18.7317C5.38679 18.8256 5.49844 18.8998 5.62133 18.9501C5.74423 19.0004 5.87591 19.0257 6.00869 19.0245C6.14147 19.0234 6.27269 18.9958 6.39469 18.9434C6.5167 18.891 6.62704 18.8148 6.71929 18.7193L12.0123 13.4263L17.3053 18.7193C17.4939 18.9014 17.7465 19.0022 18.0087 19C18.2709 18.9977 18.5217 18.8925 18.7071 18.7071C18.8925 18.5217 18.9977 18.2709 19 18.0087C19.0022 17.7465 18.9014 17.4939 18.7193 17.3053L13.4263 12.0123Z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="bg-bg-form bg-cover flex-1 flex flex-col justify-center">
+  <div class="mx-auto py-8 px-4 max-w-screen-xl relative md:py-12 md:px-8 lg:py-24">
+    <h3 class="mb-4 text-3xl font-bold text-center text-white md:text-4xl">Contact Us</h3>
+    <p class="mx-auto mb-6 max-w-xl text-center text-gray-300 md:mb-12 md:text-xl">If you have any questions, fill out the form below, and we will contact you at short notice.</p>
+    <form action="https://getform.io/f/a6c72cf0-252a-4dfc-a284-348b67a757f5" method="POST" id="form-contact-us" class="mx-auto py-4 px-4 max-w-[800px] flex flex-col flex-wrap bg-gray-800 rounded-lg md:py-4 md:px-4 md:flex-row">
+      <div class="flex-1 md:pr-4 md:flex-[50%]">
+        <label class="mb-2 block text-sm font-medium text-white" for="contact-name">Your name</label>
+        <input type="text" id="contact-name" name="name" class="py-3 px-4 w-full rounded-lg text-sm leading-4 outline-none bg-gray-700 shadow-input text-white text-gray-400::placeholder" placeholder="Name" required>
+      </div>
+      <div class="mt-4 flex-1 md:mt-0 md:pl-4 md:flex-[50%]">
+        <label class="mb-2 block text-sm font-medium text-white" for="contact-email">Your email</label>
+        <input type="email" id="contact-email" name="email" class="py-3 px-4 w-full rounded-lg text-sm leading-4 outline-none bg-gray-700 shadow-input text-white text-gray-400::placeholder" placeholder="name@example.com" required>
+      </div>
+      <div class="mt-4 flex-1 md:mt-6">
+        <label class="mb-2 block text-sm font-medium text-white" for="contact-message">Your message</label>
+        <textarea id="contact-message" name="message" class="py-3 px-4 w-full min-h-[180px] rounded-lg text-sm leading-4 outline-none bg-gray-700 shadow-input text-white text-gray-400::placeholder" placeholder="Write text here…" required></textarea>
+      </div>
+      <label for="contact-policy" class="mt-4 w-full relative flex items-center text-xs text-gray-400 md:mt-6">
+        <div class="w-4 h-4 mr-2 rounded-[4px] overflow-hidden">
+          <input type="checkbox" name="policy" id="contact-policy" class="w-4 h-4 cursor-pointer" required>
+        </div>
+        <span class="checkbox-bg w-4 h-4 absolute rounded-[4px] bg-gray-700 shadow-input pointer-events-none"></span>
+        <span>
+          By submitting this form, you confirm that you have read and agree to our 
+          <a href="/privacy" target="_blank" class="text-white underline">Privacy Statement</a>
+        </span>
+      </label>
+      <button type="submit" class="mt-4 py-3 px-5 bg-blue text-white font-medium rounded-lg whitespace-nowrap hover:bg-blue-dark focus:bg-blue-dark active:bg-blue-dark active:text-opacity-60 md:mt-6">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="w-full bg-gray-800">
+  <div class="mx-auto px-4 py-8 max-w-screen-xl md:px-8 lg:py-16">
+      <div class="flex justify-between flex-col lg:flex-row lg:items-center">
+          <a href="/" class="mb-5 w-fit flex-shrink-0 lg:mr-8 lg:mb-0">
+            <img src="/static/images/logo.svg" class="h-10" alt="Mindy Logo" />
+          </a>
+          <ul class="mb-6 flex gap-8 gap-y-4 flex-wrap text-gray-300 md:gap-10 lg:gap-11 lg:mb-0">
+            <li>
+              <a href="/careers" class="block border border-transparent decoration-current hover:border-b-white active:text-gray-500 active:border-b-gray-500">Careers</a>
+            </li>
+            <li>
+              <a href="/contact-us" class="block border border-transparent decoration-current hover:border-b-white active:text-gray-500 active:border-b-gray-500">Contact Us</a>
+            </li>
+            <li>
+              <a href="/privacy" class="block border border-transparent decoration-current hover:border-b-white active:text-gray-500 active:border-b-gray-500">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/tos" class="block border border-transparent decoration-current hover:border-b-white active:text-gray-500 active:border-b-gray-500">Terms of Service</a>
+            </li>
+          </ul>
+          <form class="flex items-center md:max-w-[360px] lg:ml-8" action="https://getform.io/f/a6c72cf0-252a-4dfc-a284-348b67a757f5" method="POST">   
+            <label for="footer-get-started" class="sr-only">Get Started</label>
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.13089 9.60851L9.13956 9.60189L9.14793 9.5949L14.1667 5.40236V11.9998C14.1667 12.2208 14.0789 12.4328 13.9226 12.5891C13.7663 12.7454 13.5544 12.8332 13.3334 12.8332H2.66671C2.44569 12.8332 2.23373 12.7454 2.07745 12.5891C1.92117 12.4328 1.83337 12.2208 1.83337 11.9998V5.45959L6.88145 9.61841L6.89007 9.62551L6.899 9.63222C7.2144 9.86924 7.59802 9.99584 7.99071 9.99584L7.99291 9.99583C8.40421 9.99402 8.80408 9.85816 9.13089 9.60851ZM2.71643 3.1665H13.2119L8.0206 7.53461L2.71643 3.1665Z" fill="currentColor" stroke="currentColor"/>
+                    </svg>
+                </div>
+                <input type="email" name="email" id="footer-get-started" class="py-3 pl-12 pr-4 w-full rounded-lg rounded-e-none text-sm leading-4 outline-none bg-gray-700 shadow-input text-white text-gray-400::placeholder" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="py-2 px-4 bg-blue text-white font-medium rounded-lg rounded-s-none whitespace-nowrap hover:bg-blue-dark focus:bg-blue-dark active:bg-blue-dark active:text-opacity-60">
+              Get Started
+            </button>
+          </form>
+      </div>
+      <hr class="mt-8 mb-4 border-gray-700 mx-auto md:my-8" />
+      <div class="flex flex-col-reverse justify-between md:flex-row md:items-center">
+        <span class="text-sm text-gray-400">© <script type="text/javascript">document.write( new Date().getFullYear() );</script> Mindy. All Rights Reserved.</span>
+        <div class="mb-4 flex gap-10 md:mb-0">
+          <a href="https://www.instagram.com/mindy.insta/" target="_blank">
+            <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.0323 15.7422C14.099 15.7422 15.7743 14.0668 15.7743 12.0002C15.7743 9.93362 14.099 8.2583 12.0323 8.2583C9.96573 8.2583 8.29041 9.93362 8.29041 12.0002C8.29041 14.0668 9.96573 15.7422 12.0323 15.7422Z" fill="currentColor"/>
+              <path d="M16.0968 2H7.90323C4.64516 2 2 4.64516 2 7.90323V16.0323C2 19.3548 4.64516 22 7.90323 22H16.0323C19.3548 22 22 19.3548 22 16.0968V7.90323C22 4.64516 19.3548 2 16.0968 2ZM12.0323 16.9032C9.29032 16.9032 7.12903 14.6774 7.12903 12C7.12903 9.32258 9.32258 7.09677 12.0323 7.09677C14.7097 7.09677 16.9032 9.32258 16.9032 12C16.9032 14.6774 14.7419 16.9032 12.0323 16.9032ZM18.8064 7.54839C18.4839 7.90323 18 8.09677 17.4516 8.09677C16.9677 8.09677 16.4839 7.90323 16.0968 7.54839C15.7419 7.19355 15.5484 6.74194 15.5484 6.19355C15.5484 5.64516 15.7419 5.22581 16.0968 4.83871C16.4516 4.45161 16.9032 4.25806 17.4516 4.25806C17.9355 4.25806 18.4516 4.45161 18.8064 4.80645C19.129 5.22581 19.3548 5.70968 19.3548 6.22581C19.3226 6.74194 19.129 7.19355 18.8064 7.54839Z" fill="currentColor"/>
+              <path d="M17.4846 5.41895C17.0653 5.41895 16.7104 5.77378 16.7104 6.19314C16.7104 6.61249 17.0653 6.96733 17.4846 6.96733C17.904 6.96733 18.2588 6.61249 18.2588 6.19314C18.2588 5.77378 17.9363 5.41895 17.4846 5.41895Z" fill="currentColor"/>
+            </svg>            
+          </a>
+          <a href="https://facebook.com/" target="_blank">
+            <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.7753 9.675H15.6753H14.9253V8.925V6.6V5.85H15.6753H17.2503C17.6628 5.85 18.0003 5.55 18.0003 5.1V1.125C18.0003 0.7125 17.7003 0.375 17.2503 0.375H14.5128C11.5503 0.375 9.48779 2.475 9.48779 5.5875V8.85V9.6H8.73779H6.18779C5.66279 9.6 5.17529 10.0125 5.17529 10.6125V13.3125C5.17529 13.8375 5.58779 14.325 6.18779 14.325H8.66279H9.41279V15.075V22.6125C9.41279 23.1375 9.82529 23.625 10.4253 23.625H13.9503C14.1753 23.625 14.3628 23.5125 14.5128 23.3625C14.6628 23.2125 14.7753 22.95 14.7753 22.725V15.1125V14.3625H15.5628H17.2503C17.7378 14.3625 18.1128 14.0625 18.1878 13.6125V13.575V13.5375L18.7128 10.95C18.7503 10.6875 18.7128 10.3875 18.4878 10.0875C18.4128 9.9 18.0753 9.7125 17.7753 9.675Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://twitter.com/MindyGenAI" target="_blank">
+            <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.244 2.25H21.552L14.325 10.51L22.827 21.75H16.17L10.956 14.933L4.99003 21.75H1.68003L9.41003 12.915L1.25403 2.25H8.08003L12.793 8.481L18.244 2.25ZM17.083 19.77H18.916L7.08403 4.126H5.11703L17.083 19.77Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/mindy-ai/" target="_blank">
+            <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.5161 2H3.45161C2.64516 2 2 2.64516 2 3.45161V20.5484C2 21.3226 2.64516 22 3.45161 22H20.4516C21.2581 22 21.9032 21.3548 21.9032 20.5484V3.41935C21.9678 2.64516 21.3226 2 20.5161 2ZM7.90324 19H4.96776V9.48387H7.90324V19ZM6.41937 8.16129C5.45163 8.16129 4.70968 7.3871 4.70968 6.45161C4.70968 5.51613 5.48388 4.74194 6.41937 4.74194C7.35485 4.74194 8.12905 5.51613 8.12905 6.45161C8.12905 7.3871 7.41937 8.16129 6.41937 8.16129ZM19.0323 19H16.0968V14.3871C16.0968 13.2903 16.0645 11.8387 14.5484 11.8387C13 11.8387 12.7742 13.0645 12.7742 14.2903V19H9.83872V9.48387H12.7097V10.8065H12.7419C13.1613 10.0323 14.0968 9.25806 15.5484 9.25806C18.5484 9.25806 19.0968 11.1935 19.0968 13.8387V19H19.0323Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+  </div>
+</footer>
+
+<div id="popup-get-started" tabindex="-1" aria-hidden="true" class="p-4 overflow-y-auto overflow-x-hidden fixed top-0 left-0 z-50 w-full h-full flex justify-center items-center hidden bg-gray-600 bg-opacity-80">
+  <div class="p-6 w-full max-w-[480px] bg-dark rounded-lg md:p-8">
+    <div class="flex justify-between items-center">
+      <img src="/static/images/logo.svg" alt="Logo" class="w-32" />
+      <button data-hide-toggle="popup-get-started">
+        <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.4263 12.0123L18.7193 6.71929C18.8148 6.62704 18.891 6.5167 18.9434 6.39469C18.9958 6.27269 19.0234 6.14147 19.0245 6.00869C19.0257 5.87591 19.0004 5.74423 18.9501 5.62133C18.8998 5.49844 18.8256 5.38679 18.7317 5.29289C18.6378 5.199 18.5261 5.12475 18.4032 5.07447C18.2803 5.02419 18.1487 4.99888 18.0159 5.00004C17.8831 5.00119 17.7519 5.02878 17.6299 5.08119C17.5079 5.1336 17.3975 5.20978 17.3053 5.30529L12.0123 10.5983L6.71929 5.30529C6.53069 5.12313 6.27808 5.02234 6.01589 5.02461C5.75369 5.02689 5.50288 5.13206 5.31747 5.31747C5.13206 5.50288 5.02689 5.75369 5.02461 6.01589C5.02234 6.27808 5.12313 6.53069 5.30529 6.71929L10.5983 12.0123L5.30529 17.3053C5.20978 17.3975 5.1336 17.5079 5.08119 17.6299C5.02878 17.7519 5.00119 17.8831 5.00004 18.0159C4.99888 18.1487 5.02419 18.2803 5.07447 18.4032C5.12475 18.5261 5.199 18.6378 5.29289 18.7317C5.38679 18.8256 5.49844 18.8998 5.62133 18.9501C5.74423 19.0004 5.87591 19.0257 6.00869 19.0245C6.14147 19.0234 6.27269 18.9958 6.39469 18.9434C6.5167 18.891 6.62704 18.8148 6.71929 18.7193L12.0123 13.4263L17.3053 18.7193C17.4939 18.9014 17.7465 19.0022 18.0087 19C18.2709 18.9977 18.5217 18.8925 18.7071 18.7071C18.8925 18.5217 18.9977 18.2709 19 18.0087C19.0022 17.7465 18.9014 17.4939 18.7193 17.3053L13.4263 12.0123Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mt-4 md:mt-6">
+      <p class="mb-4 text-white md:mb-6">
+        Mindy can help with knowledge work and admin organizational tasks.<br/><br/>
+        Ready to see how Mindy can help you?
+      </p>
+      <form class="flex flex-col gap-3 md:flex-row md:items-end" action="https://getform.io/f/a6c72cf0-252a-4dfc-a284-348b67a757f5" method="POST">
+        <div class="relative w-full">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-400" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.13089 9.60851L9.13956 9.60189L9.14793 9.5949L14.1667 5.40236V11.9998C14.1667 12.2208 14.0789 12.4328 13.9226 12.5891C13.7663 12.7454 13.5544 12.8332 13.3334 12.8332H2.66671C2.44569 12.8332 2.23373 12.7454 2.07745 12.5891C1.92117 12.4328 1.83337 12.2208 1.83337 11.9998V5.45959L6.88145 9.61841L6.89007 9.62551L6.899 9.63222C7.2144 9.86924 7.59802 9.99584 7.99071 9.99584L7.99291 9.99583C8.40421 9.99402 8.80408 9.85816 9.13089 9.60851ZM2.71643 3.1665H13.2119L8.0206 7.53461L2.71643 3.1665Z" fill="currentColor" stroke="currentColor"/>
+            </svg>
+          </div>
+          <input type="email" id="contact-email" name="email" class="py-3 pr-4 pl-10 w-full rounded-lg text-sm leading-4 outline-none bg-gray-700 shadow-input text-white text-gray-400::placeholder" placeholder="Enter your email" required>
+        </div>
+        <button type="submit" class="py-3 px-6  h-10 flex justify-center items-center bg-blue text-white font-medium rounded-lg whitespace-nowrap hover:bg-blue-dark focus:bg-blue-dark active:shadow-button md:w-fit">
+          Get Started
+          <svg class="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.6 11.4L13.8375 3.52498C13.5 3.18748 12.975 3.18748 12.6375 3.52498C12.3 3.86248 12.3 4.38748 12.6375 4.72498L18.9375 11.1375H3.00005C2.55005 11.1375 2.17505 11.5125 2.17505 11.9625C2.17505 12.4125 2.55005 12.825 3.00005 12.825H19.0125L12.6375 19.3125C12.3 19.65 12.3 20.175 12.6375 20.5125C12.7875 20.6625 13.0125 20.7375 13.2375 20.7375C13.4625 20.7375 13.6875 20.6625 13.8375 20.475L21.6 12.6C21.9375 12.2625 21.9375 11.7375 21.6 11.4Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/header.js"></script>
+
+<script>
+  const form = document.getElementById('form-contact-us');
+  const checkbox = document.getElementById('contact-policy');
+  const checkboxBg = document.querySelector('.checkbox-bg');
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) checkboxBg.classList.add('bg-transparent');
+    else checkboxBg.classList.remove('bg-transparent');
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+
+    Email.send({
+      SecureToken: '0a0e637c-0d2f-4a91-8002-178cba5655db',
+      To: 'georgi.email.test@gmail.com',
+      From: "georgi.email.test@gmail.com",
+      Subject: "Mindy Contact Us",
+      Body: `
+        Name: ${data.name}
+        <br/>
+        Email: ${data.email}
+        <br/>
+        Message: ${data.message}
+      `,
+    }).then(() => {
+      // form.submit();
+    });
+  });
+</script>
+</body>
+</html>
